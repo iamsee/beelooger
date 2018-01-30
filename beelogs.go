@@ -16,7 +16,17 @@ var FileLogs *logs.BeeLogger
 //运行方式
 var runmode string
 
-
+const (
+	Emergency
+	Alert
+	Critical
+	Error
+	Warning
+	Notice
+	Info
+	Debug
+	Trace
+)
 type Beelog struct {
 	consoleLogs *logs.BeeLogger
 	FileLogs  *logs.BeeLogger
@@ -65,44 +75,44 @@ func InitLogs(devmode string,logpath string,beelog Beelog)  *Beelog{
 
 	return &beelog
 }
-func (this *Beelog) Fatal(v interface{}, r ...interface{}) {
-	this.toLog("emergency", v)
-}
-func (this *Beelog) Emergency(v interface{}, r ...interface{}) {
-	this.toLog("emergency", v)
-}
-func (this *Beelog) Alert(v interface{}, r ...interface{}) {
-	this.toLog("alert", v)
-}
-
-func (this *Beelog) Critical(v interface{}, r ...interface{}) {
-	this.toLog("critical", v)
-}
-func (this *Beelog) Error(v interface{},r ...interface{}) {
-	this.toLog("error", v)
-
-}
-func (this *Beelog) Warning(v interface{}, r ...interface{}) {
-	this.toLog("warning", v)
-
-}
-func (this *Beelog) Notice(v interface{},r ...interface{}) {
-	this.toLog("notice", v)
-
-}
-func (this *Beelog) Info(v interface{},r ...interface{}) {
-	this.toLog("Info", v)
-
-}
-func (this *Beelog) Debug(v interface{},r ...interface{}) {
-	this.toLog("debug", v)
-
-}
-
-func (this *Beelog) Trace(v interface{},r ...interface{}) {
-	this.toLog("trace", v)
-
-}
+//func (this *Beelog) Fatal(v interface{}, r ...interface{}) {
+//	this.toLog("emergency", v)
+//}
+//func (this *Beelog) Emergency(v interface{}, r ...interface{}) {
+//	this.toLog("emergency", v)
+//}
+//func (this *Beelog) Alert(v interface{}, r ...interface{}) {
+//	this.toLog("alert", v)
+//}
+//
+//func (this *Beelog) Critical(v interface{}, r ...interface{}) {
+//	this.toLog("critical", v)
+//}
+//func (this *Beelog) Error(v interface{},r ...interface{}) {
+//	this.toLog("error", v)
+//
+//}
+//func (this *Beelog) Warning(v interface{}, r ...interface{}) {
+//	this.toLog("warning", v)
+//
+//}
+//func (this *Beelog) Notice(v interface{},r ...interface{}) {
+//	this.toLog("notice", v)
+//
+//}
+//func (this *Beelog) Info(v interface{},r ...interface{}) {
+//	this.toLog("Info", v)
+//
+//}
+//func (this *Beelog) Debug(v interface{},r ...interface{}) {
+//	this.toLog("debug", v)
+//
+//}
+//
+//func (this *Beelog) Trace(v interface{},r ...interface{}) {
+//	this.toLog("trace", v)
+//
+//}
 
 //Log 输出日志
 func (this *Beelog)  toLog(level, v interface{}) {
@@ -110,23 +120,23 @@ func (this *Beelog)  toLog(level, v interface{}) {
 
 	if this.runmode == "DEBUG" {
 		switch level {
-		case "emergency":
+		case 0:
 			this.consoleLogs.Emergency(format, v)
-		case "alert":
+		case 1:
 			this.consoleLogs.Alert(format, v)
-		case "critical":
+		case 2:
 			this.consoleLogs.Critical(format, v)
-		case "error":
+		case 3:
 			this.consoleLogs.Error(format, v)
-		case "warning":
+		case 4:
 			this.consoleLogs.Warning(format, v)
-		case "notice":
+		case 5:
 			this.consoleLogs.Notice(format, v)
-		case "info":
+		case 6:
 			this.consoleLogs.Info(format, v)
-		case "debug":
+		case 7:
 			this.consoleLogs.Debug(format, v)
-		case "trace":
+		case 8:
 			this.consoleLogs.Trace(format, v)
 		default:
 			this.consoleLogs.Debug(format, v)
