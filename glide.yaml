@@ -1,0 +1,5 @@
+package: .
+import:
+- package: github.com/astaxie/beego
+  subpackages:
+  - logs
