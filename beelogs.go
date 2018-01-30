@@ -115,31 +115,31 @@ func InitLogs(devmode string,logpath string,beelog Beelog)  *Beelog{
 //}
 
 //Log 输出日志
-func (this *Beelog)  Log(level, v interface{}) {
+func (this *Beelog)  Log(level, v interface{} ,r ...interface{}) {
 	format := "%s"
 
 	if this.runmode == "DEBUG" {
 		switch level {
 		case "emergency":
-			this.consoleLogs.Emergency(format, v)
+			this.consoleLogs.Emergency(format, v,r)
 		case "alert":
-			this.consoleLogs.Alert(format, v)
+			this.consoleLogs.Alert(format, v,r)
 		case "critical":
-			this.consoleLogs.Critical(format, v)
+			this.consoleLogs.Critical(format, v,r)
 		case "error":
-			this.consoleLogs.Error(format, v)
+			this.consoleLogs.Error(format, v,r)
 		case "warning":
-			this.consoleLogs.Warning(format, v)
+			this.consoleLogs.Warning(format, v,r)
 		case "notice":
-			this.consoleLogs.Notice(format, v)
+			this.consoleLogs.Notice(format, v,r)
 		case "info":
-			this.consoleLogs.Info(format, v)
+			this.consoleLogs.Info(format, v,r)
 		case "debug":
-			this.consoleLogs.Debug(format, v)
+			this.consoleLogs.Debug(format, v,r)
 		case "trace":
-			this.consoleLogs.Trace(format, v)
+			this.consoleLogs.Trace(format, v,r)
 		default:
-			this.consoleLogs.Debug(format, v)
+			this.consoleLogs.Debug(format, v,r)
 		}
 	}
 
