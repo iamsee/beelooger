@@ -16,18 +16,7 @@ var FileLogs *logs.BeeLogger
 //运行方式
 var runmode string
 
-const (
-	Emergency 
-	Alert
-	Critical
-	Error
-	Warning
-	Notice
-	Info
-	Debug
-	Trace
-	
-)
+
 type Beelog struct {
 	consoleLogs *logs.BeeLogger
 	FileLogs  *logs.BeeLogger
