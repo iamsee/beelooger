@@ -178,7 +178,3 @@ func PathExists(path string) (bool, error) {
 	return false, err
 }
 
-func main()  {
-	logger := InitLogs("","logs",Beelog{})
-	logger.Warning("warning")
-}
