@@ -67,38 +67,38 @@ func InitLogs(devmode string,logpath string,beelog Beelog)  *Beelog{
 func (this *Beelog) Fatal(v interface{}, r ...interface{}) {
 	this.toLog("emergency", v)
 }
-func (this *Beelog) Emergency(v interface{}) {
+func (this *Beelog) Emergency(v interface{}, r ...interface{}) {
 	this.toLog("emergency", v)
 }
-func (this *Beelog) Alert(v interface{}) {
+func (this *Beelog) Alert(v interface{}, r ...interface{}) {
 	this.toLog("alert", v)
 }
 
-func (this *Beelog) Critical(v interface{}) {
+func (this *Beelog) Critical(v interface{}, r ...interface{}) {
 	this.toLog("critical", v)
 }
-func (this *Beelog) Error(v interface{}) {
+func (this *Beelog) Error(v interface{},r ...interface{}) {
 	this.toLog("error", v)
 
 }
-func (this *Beelog) Warning(v interface{}) {
+func (this *Beelog) Warning(v interface{}, r ...interface{}) {
 	this.toLog("warning", v)
 
 }
-func (this *Beelog) Notice(v interface{}) {
+func (this *Beelog) Notice(v interface{},r ...interface{}) {
 	this.toLog("notice", v)
 
 }
-func (this *Beelog) Info(v interface{}) {
+func (this *Beelog) Info(v interface{},r ...interface{}) {
 	this.toLog("Info", v)
 
 }
-func (this *Beelog) Debug(v interface{}) {
+func (this *Beelog) Debug(v interface{},r ...interface{}) {
 	this.toLog("debug", v)
 
 }
 
-func (this *Beelog) Trace(v interface{}) {
+func (this *Beelog) Trace(v interface{},r ...interface{}) {
 	this.toLog("trace", v)
 
 }
