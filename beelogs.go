@@ -24,6 +24,7 @@ const (
 	Warning
 	Notice
 	Info
+	Debug
 	Trace
 	
 )
