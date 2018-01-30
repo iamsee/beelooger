@@ -17,15 +17,15 @@ var FileLogs *logs.BeeLogger
 var runmode string
 
 const (
-	Emergency
-	Alert
-	Critical
-	Error
-	Warning
-	Notice
-	Info
-	Debug
-	Trace
+	Emergency string = "emergency"
+	Alert string = "alert"
+	Critical string = "critical"
+	Error string = "error"
+	Warning string = "warning"
+	Notice string = "notice"
+	Info string = "info"
+	Debug string = "debug"
+	Trace string = "trace"
 )
 type Beelog struct {
 	consoleLogs *logs.BeeLogger
@@ -120,23 +120,23 @@ func (this *Beelog)  toLog(level, v interface{}) {
 
 	if this.runmode == "DEBUG" {
 		switch level {
-		case 0:
+		case "emergency":
 			this.consoleLogs.Emergency(format, v)
-		case 1:
+		case "alert":
 			this.consoleLogs.Alert(format, v)
-		case 2:
+		case "critical":
 			this.consoleLogs.Critical(format, v)
-		case 3:
+		case "error":
 			this.consoleLogs.Error(format, v)
-		case 4:
+		case "warning":
 			this.consoleLogs.Warning(format, v)
-		case 5:
+		case "notice":
 			this.consoleLogs.Notice(format, v)
-		case 6:
+		case "info":
 			this.consoleLogs.Info(format, v)
-		case 7:
+		case "debug":
 			this.consoleLogs.Debug(format, v)
-		case 8:
+		case "trace":
 			this.consoleLogs.Trace(format, v)
 		default:
 			this.consoleLogs.Debug(format, v)
