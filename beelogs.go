@@ -115,7 +115,7 @@ func InitLogs(devmode string,logpath string,beelog Beelog)  *Beelog{
 //}
 
 //Log 输出日志
-func (this *Beelog)  toLog(level, v interface{}) {
+func (this *Beelog)  Log(level, v interface{}) {
 	format := "%s"
 
 	if this.runmode == "DEBUG" {
